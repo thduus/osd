@@ -100,23 +100,24 @@ docker run -p 3000:3000 --device=/dev/video0 ksl-ally-tutor-cpu
 ---
 
 ## 프로젝트 구조
-
+```bash
 KSL-A11y-Tutor/
-├── src/               # 핵심 Python 로직 (데이터 처리, 학습 스크립트)
-│   ├── features.py    # 랜드마크 -> 특징 (각도, 길이비) 추출 로직
-│   └── train.py       # scikit-learn 분류기 (SVM/RF) 학습 로직
-├── web/               # 프런트엔드 (React/Vue.js) 코드
-│   ├── components/    # 접근성 UI 컴포넌트 (고대비, 폰트 옵션 등)
-│   ├── public/        # TFJS 모델 파일 로드 위치
-│   └── pages/         # UI 흐름 (시작, 학습, 리포트)
-├── models/            # 학습된 모델 저장소 (.pkl 또는 .json/tfjs 형식)
-├── data/              # 수집된 키포인트 데이터 (.csv)
-├── scripts/           # 자동화 스크립트
-│   ├── setup.sh       # 환경 설치 및 의존성 구성
-│   ├── collect.sh     # 데이터 수집 (웹캠 프레임 캡처 -> 키포인트 추출)
-│   ├── train.sh       # 모델 학습 및 변환 (Python -> TFJS)
-│   └── run.sh         # 프로젝트 실행 (Node 또는 Docker run)
-└── docs/              # 문서 (README, CONTRIBUTING, LICENSE)
+├── src/                    # 핵심 Python 로직 (데이터 처리 및 학습 스크립트)
+│   ├── features.py         # 랜드마크 -> 특징 추출 (각도, 길이비)
+│   └── train.py            # scikit-learn 분류기 학습 (SVM/RF)
+├── web/                    # 프런트엔드 (React/Vue.js) 코드 및 실행 파일
+│   ├── components/         # 접근성 UI 컴포넌트 (고대비, 폰트 옵션)
+│   ├── public/             # TFJS 모델 파일 로드 위치
+│   └── pages/              # UI 흐름 (시작, 학습, 리포트)
+├── models/                 # 학습된 모델 저장소 (.pkl 또는 .json/tfjs)
+├── data/                   # 수집된 키포인트 데이터 (.csv)
+├── scripts/                # 자동화 스크립트 (setup, collect, train, run)
+│   ├── setup.sh            # 환경 설치 및 의존성 구성
+│   ├── collect.sh          # 데이터 수집 (웹캠 프레임 캡처 -> 키포인트)
+│   ├── train.sh            # 모델 학습 및 변환 (Python -> TFJS)
+│   └── run.sh              # 프로젝트 실행 (Node 또는 Docker run)
+└── docs/                   # 문서 (README, CONTRIBUTING, LICENSE)
+```
 
 ---
 
@@ -133,4 +134,3 @@ KSL-A11y-Tutor/
 ## 라이선스
 
 본 프로젝트의 코드는 **MIT License**를 따릅니다.
-단, 학습에 사용되는 $\text{키포인트}$ 데이터셋 및 참조 템플릿은 **CC BY-SA (저작자 표시-동일 조건 변경 허락) License**를 따릅니다.
